@@ -1,0 +1,23 @@
+<Chart Width="500" Height="500">
+  <Series>
+    <Series Name="Ürünler" Legend="Legend1" XValueType="String" YValueType="Int32" ChartType="Doughnut" ChartArea="Default">
+      <Points>
+        <DataPoint YValues="100" AxisLabel="Bilgisayar" />
+        <DataPoint YValues="200" AxisLabel="Fare" />
+        <DataPoint YValues="500" AxisLabel="Klavye" />
+      </Points>
+    </Series>
+  </Series>
+  <ChartAreas>
+    <ChartArea Name="Default">
+    </ChartArea>
+  </ChartAreas>
+  <Legends>
+    <Legend Name="Legend1" Title="Ürünler">
+    </Legend>
+  </Legends>
+  <Titles>
+    <Title Name="Title1" Text="MyComputer - Ürün Satış Detay Grafiği">
+    </Title>
+  </Titles>
+</Chart>

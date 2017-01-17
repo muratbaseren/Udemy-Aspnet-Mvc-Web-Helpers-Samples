@@ -1,0 +1,100 @@
+﻿@using AspnetMvcWebHelpers.Models
+@using System.Web.Helpers
+
+@model List<Kitap>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<style>
+    #mytable tr {
+        margin: 3px;
+        border: 1px dashed #2e2e2e;
+        margin-left: 10px;
+    }
+
+        #mytable tr:hover {
+            background-color: #ceff54;
+        }
+
+        #mytable tr th {
+            text-align: center;
+            background-color: #ddd;
+            border: 1px solid #808080;
+            padding: 10px;
+        }
+
+        #mytable tr td {
+            padding: 3px;
+            text-align: center;
+            border: 1px dotted #808080;
+            padding-left: 10px;
+        }
+</style>
+
+<script>
+
+    function mytable_databind() {
+        console.log("mytable yüklendi..");
+    }
+
+</script>
+
+
+@{
+    WebGrid grid = new WebGrid(
+        source: Model,
+        columnNames: new[] { "Id", "Adi", "Yazar", "YayinTarihi", "Fiyat" },
+        defaultSort: "Adi",
+        rowsPerPage: 8,
+        canPage: true,
+        canSort: true,
+        ajaxUpdateContainerId:"mytable",
+        ajaxUpdateCallback:"mytable_databind",
+        pageFieldName: "sayfano",
+        sortFieldName: "sirali",
+        sortDirectionFieldName: "yon");
+}
+
+
+<h2>Kitaplar</h2>
+<hr />
+
+<div class="row">
+
+    <div class="col-md-12">
+        @using (Html.BeginForm())
+        {
+            @Html.TextBox("search",null, new { placeholder="aranan metin", @class="form-control col-md-2" })
+            <button type="submit" class="btn btn-success">
+                <span class="glyphicon glyphicon-search"></span> Ara
+            </button>
+        }
+    </div>
+
+    <div class="col-md-12">
+        <hr />
+    </div>
+
+    <div class="col-md-12">
+        @grid.GetHtml(
+            caption: "Kitap Listesi",
+            displayHeader: true,
+            fillEmptyRows: false,
+            mode: WebGridPagerModes.All,
+            numericLinksCount: 3,
+            columns: new[] {
+                grid.Column("Adi","Kitap Adi"),
+                grid.Column("Yazar","Kitap Yazarı"),
+                grid.Column("YayinTarihi","Yayın Tarihi"),
+                grid.Column("Fiyat","Fiyat(₺)")
+            },
+            firstText: "[ilk]",
+            lastText: "[son]",
+            previousText: "[önceki]",
+            nextText: "[sonraki]",
+            htmlAttributes: new { id = "mytable" }
+        )
+    </div>
+</div>

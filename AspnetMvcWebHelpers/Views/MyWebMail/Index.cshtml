@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Web Mail</h2>
+
+@if (ViewBag.Sonuc == true)
+{
+    <div class="text-success">
+        <span class="glyphicon glyphicon-ok"></span>
+        E -Posta Gönderilmiştir.
+    </div>
+}
+else
+{
+    <div class="text-danger">
+        <span class="glyphicon glyphicon-remove"></span>
+        @ViewBag.Hata
+    </div>
+}

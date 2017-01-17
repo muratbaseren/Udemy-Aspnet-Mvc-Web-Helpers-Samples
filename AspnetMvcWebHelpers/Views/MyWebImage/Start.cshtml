@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewBag.Title = "Start";
+}
+
+<h2>Start</h2>
+
+<div class="row">
+    <div class="col-sm-6">
+        <strong>Kaynak</strong><br />
+        <img src="/MyWebImage/Process?p=Original" />
+    </div>
+
+    <div class="col-sm-6">
+        <strong>Hedef</strong><br />
+        <img src="/MyWebImage/Process?p=@ViewBag.cmd" />
+    </div>
+
+    <div class="col-sm-12">
+        <hr />
+    </div>
+
+    <div class="col-sm-6">
+        <a href="/MyWebImage/Start?cmd=Original" class="btn btn-success">Original</a>
+        <a href="/MyWebImage/Start?cmd=RotateLeft" class="btn btn-success">RotateLeft</a>
+        <a href="/MyWebImage/Start?cmd=RotateRight" class="btn btn-success">RotateRight</a>
+        <a href="/MyWebImage/Start?cmd=FlipHorizontal" class="btn btn-success">FlipHorizontal</a>
+        <a href="/MyWebImage/Start?cmd=FlipVertical" class="btn btn-success">FlipVertical</a>
+        <a href="/MyWebImage/Start?cmd=Resize" class="btn btn-success">Resize</a>
+        <a href="/MyWebImage/Start?cmd=Crop" class="btn btn-success">Crop</a>
+        <a href="/MyWebImage/Start?cmd=AddTextWatermark" class="btn btn-success">AddTextWatermark</a>
+        <a href="/MyWebImage/Start?cmd=AddImageWatermark" class="btn btn-success">AddImageWatermark</a>
+    </div>
+
+</div>

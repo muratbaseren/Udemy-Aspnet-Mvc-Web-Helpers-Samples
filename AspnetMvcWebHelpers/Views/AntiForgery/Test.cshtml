@@ -1,0 +1,30 @@
+﻿@model List<string>
+@{
+    ViewBag.Title = "Test";
+}
+
+<h2>Anti Forgery Token</h2>
+<hr />
+
+<div class="row">
+    <ul class="list-group">
+        @foreach (string item in Model)
+        {
+            <li class="list-group-item">
+                @item
+            </li>
+        }
+    </ul>
+</div>
+
+<hr />
+
+<div class="row">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <strong> index : </strong>
+        @Html.TextBox("id", "",new { @class = "form-control" })
+        <button class="btn btn-danger" type="submit">Gönder</button>
+    }
+</div>
